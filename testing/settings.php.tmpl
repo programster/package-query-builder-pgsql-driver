@@ -1,0 +1,16 @@
+<?php
+
+/*
+ * The test database's connection details, for running testing/main.php directly (the run-all-*.sh scripts start
+ * their own databases instead). Copy this to testing/settings.php, which git ignores, and fill it in. The tests only
+ * create temporary tables, so any database will do. You can run a throwaway one with:
+ *
+ *   docker run -d --rm --name pgsql-driver-test -e POSTGRES_USER=test -e POSTGRES_PASSWORD=test \
+ *       -e POSTGRES_DB=test -p 127.0.0.1:5433:5432 postgres
+ */
+
+define('DB_HOST', '127.0.0.1');
+define('DB_PORT', 5433);
+define('DB_USER', 'test');
+define('DB_PASSWORD', 'test');
+define('DB_NAME', 'test');

@@ -1,8 +1,8 @@
 {
     "name": "programster/query-builder-pgsql-driver",
     "type": "library",
-    "description": "A PostgreSQL driver for the programster/query-builder-parser package.",
-    "keywords": ["postgresql","query", "builder"],
+    "description": "A PostgreSQL driver for the programster/query-builder-parser package, which turns jQuery QueryBuilder's JSON into SQL.",
+    "keywords": ["postgresql", "pgsql", "query", "builder", "querybuilder", "sql"],
     "homepage": "https://github.com/programster/package-query-builder-pgsql-driver",
     "license": "MIT",
     "authors": [
@@ -14,10 +14,13 @@
         }
     ],
     "require": {
-        "php": ">=8.1",
-        "programster/pgsql-lib": "1.0.*|2.0.*|^3.0",
-         "ext-pgsql": "*",
-        "programster/query-builder-parser": "1.0.*"
+        "php": "^8.2",
+        "ext-pgsql": "*",
+        "programster/pgsql-lib": "^3.0",
+        "programster/query-builder-parser": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.3"
     },
     "autoload": {
         "psr-4": {
@@ -26,8 +29,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Programster\\QueryBuilderPgsqlDriver\\Testing\\": "testing/",
-            "Programster\\QueryBuilderPgsqlDriver\\Testing\\Tests\\": "testing/tests/"
+            "Programster\\QueryBuilderPgsqlDriver\\Testing\\": "testing/"
         }
     }
 }

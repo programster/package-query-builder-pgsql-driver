@@ -1,0 +1,20 @@
+# PHPStan settings. Run with: vendor/bin/phpstan
+parameters:
+    level: 10
+    phpVersion:
+        min: 80200
+        max: 80699
+    paths:
+        - src
+        - testing
+    ignoreErrors:
+        # Accessors are one line, with no docblock, so SmokeTest::getFailures() can't say its array holds strings,
+        # which main.php then puts in a string.
+        -
+            identifier: missingType.iterableValue
+            path: testing/SmokeTest.php
+            count: 1
+        -
+            identifier: encapsedStringPart.nonString
+            path: testing/main.php
+            count: 1

@@ -1,6 +1,11 @@
 <?php
 
+/*
+ * Thrown when a group's "condition" isn't one of the conjunctions (see Conjunction).
+ */
+
 namespace Programster\QueryBuilderPgsqlDriver;
+
 
 class ExceptionInvalidConjunction extends \Exception
 {
@@ -9,4 +14,3 @@ class ExceptionInvalidConjunction extends \Exception
         parent::__construct("Invalid conjunction provided: {$conjunction}. Must be one of 'AND' or 'OR'");
     }
 }
-
