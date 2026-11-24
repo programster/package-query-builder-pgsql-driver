@@ -5,22 +5,17 @@ namespace Programster\QueryBuilderPgsqlDriver\Testing;
 require_once(__DIR__ . '/../vendor/autoload.php');
 require_once(__DIR__ . '/TestSettings.php');
 
-use Programster\CoreLibs\Filesystem;
+$testPaths = glob(__DIR__ . '/tests/*.php');
 
-$autoloader = new \iRAP\Autoloader\Autoloader([__DIR__]);
-
-$tests = Filesystem::getDirContents(
-    $dir=__DIR__ . '/tests', 
-    $recursive = true, 
-    $includePath = false, 
-    $onlyFiles = true
-);
-
-
-foreach ($tests as $testFilename)
+if ($testPaths === false)
 {
-    $testName = substr($testFilename, 0, -4);
-    require_once(__DIR__ . "/tests/{$testFilename}");
+    throw new \Exception("Failed to list the tests in " . __DIR__ . "/tests");
+}
+
+foreach ($testPaths as $testPath)
+{
+    $testName = basename($testPath, '.php');
+    require_once($testPath);
     $testName = __NAMESPACE__ . "\Tests\\{$testName}";
 
     /* @var $testToRun AbstractTest */

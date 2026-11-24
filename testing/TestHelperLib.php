@@ -17,12 +17,14 @@ class TestHelperLib
 
         if ($db === null)
         {
+            // named arguments, as pgsql-lib 3 added a required $forceNew before $port.
             $db = PgSqlConnection::create(
-                DB_HOST,
-                DB_NAME,
-                DB_USER,
-                DB_PASSWORD,
-                DB_PORT
+                host: DB_HOST,
+                dbName: DB_NAME,
+                user: DB_USER,
+                password: DB_PASSWORD,
+                forceNew: false,
+                port: DB_PORT
             );
         }
 
